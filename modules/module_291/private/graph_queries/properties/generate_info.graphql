@@ -1,0 +1,15 @@
+mutation {
+	record_create(
+		record:{
+			table: "modules/module_291/information"
+			properties:[
+				{
+					name: "name",
+					value: null
+				}
+			]
+		}
+	){
+		id
+	}
+}
