@@ -2,3 +2,7 @@ name: information
 properties:
 - name: name
   type: string
+  default: null
+- name: color
+  type: string
+  default: null
