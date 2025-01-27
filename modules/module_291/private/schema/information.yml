@@ -4,4 +4,4 @@ properties:
   type: string
 - name: color
   type: string
-  default: null
+  value: null
