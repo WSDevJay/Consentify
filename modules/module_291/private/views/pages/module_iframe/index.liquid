@@ -29,7 +29,7 @@ layout: modules/module_291/templates/1
 
 	<label for="primaryColor">Primary color* :</label>
 	<input required name="primarycolor" id="primarycolor" type="text" class="form-control mb-4">
-	
+
 	<button class="btn btn-primary mb-5" id="submitBtn">Submit</button>
 </form>
 
@@ -49,7 +49,7 @@ layout: modules/module_291/templates/1
 			SEC_FETCH_DEST: 'iframe'
 		}
 		}).then(() => {
-			alert("New property added!");
+			alert("Updated!");
 			window.location.href="/module_291/module_iframe/index?{% include 'modules/siteglide_system/modules/auth' -%}"
 		})
 	};
