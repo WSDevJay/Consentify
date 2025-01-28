@@ -33,10 +33,10 @@ layout: modules/module_291/templates/1
 
 	<h3>Position</h3>
 	<select required name="position" id="position" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Position'] }}">
-		<option value="center">Center</option>
-		<option value="bottomLeft">BottomLeft</option>
-		<option value="bottomRight">BottomRight</option>
-		<option value="bottomCenter">BottomCenter</option>
+		<option value="center" {% if check_core_table_exist.records.results[0].properties['Position'] == 'center' %}selected{% endif %}>Center</option>
+		<option value="bottomLeft" {% if check_core_table_exist.records.results[0].properties['Position'] == 'bottomLeft' %}selected{% endif %}>BottomLeft</option>
+		<option value="bottomRight" {% if check_core_table_exist.records.results[0].properties['Position'] == 'bottomRight' %}selected{% endif %}>BottomRight</option>
+		<option value="bottomCenter" {% if check_core_table_exist.records.results[0].properties['Position'] == 'bottomCenter' %}selected{% endif %}>BottomCenter</option>
 	</select>
 
 	<button class="btn btn-primary mb-5" id="submitBtn">Save</button>

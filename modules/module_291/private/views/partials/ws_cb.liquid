@@ -578,8 +578,11 @@ silktideCookieBannerManager.updateCookieBannerConfig({
   background: {
     showBackground: true
   },
-  cookieIcon: {
+  banner: {
     position: "{{ check_core_table_exist.records.results[0].properties['Position'] | default: 'bottomLeft' }}"
+  },
+  cookieIcon: {
+    position: "bottomLeft"
   },
   cookieTypes: [
     {
