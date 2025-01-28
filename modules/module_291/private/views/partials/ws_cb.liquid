@@ -1,105 +1,90 @@
 {% graphql check_core_table_exist = "modules/module_291/properties/check_core_table_exist" %}
 
 <style>
+  /* 
+    Styles are at risked of being overridden by styles coming from the source page.
+    To help prevent this, global wrapper elements are prefixed with "#silktide-"
+  */
+
+  /* --------------------------------
+    Global Styles - These elements exist in the main DOM and styling is limited to positioning and animation
+  -------------------------------- */
+  /* Wrapper (Global) */
   #silktide-wrapper {
+    /* Global */
     --focus: 0 0 0 2px #ffffff, 0 0 0 4px #000000, 0 0 0 6px #ffffff;
-      --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
-      --fontFamily: Helvetica Neue, Segoe UI, Arial, sans-serif;
-
-      --primaryColor: {{ check_core_table_exist.records.results[0].properties['Primary color'] |  default: '#533BE2' }};
-      --backgroundColor: {{ check_core_table_exist.records.results[0].properties['Background'] |  default: '#FFFFFF' }};
-      --textColor: {{ check_core_table_exist.records.results[0].properties['Text'] |  default: '#4B494B' }};
-
-      --backdropBackgroundColor: undefined;
-      --backdropBackgroundBlur: 2px;
-
-      --cookieIconColor: {{ check_core_table_exist.records.results[0].properties['Icon background color'] | default: '#533BE2' }};
-      --cookieIconBackgroundColor: {{ check_core_table_exist.records.results[0].properties['Icon text color'] | default: '#FFFFFF' }};
-      
-      position: fixed;
-      bottom: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 99999;
-      pointer-events: none;
-      border: 0px;
-      display: flex;
-      justify-content: center;
-      align-items: center
+    --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
+    --fontFamily: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+    /* Color Scheme */
+    --primaryColor: {{ check_core_table_exist.records.results[0].properties['Primary color'] |  default: '#533BE2' }};
+    --backgroundColor: {{ check_core_table_exist.records.results[0].properties['Background'] |  default: '#FFFFFF' }};
+    --textColor: {{ check_core_table_exist.records.results[0].properties['Text'] |  default: '#4B494B' }};
+    /* Backdrop */
+    --backdropBackgroundColor: #0505051a;
+    --backdropBackgroundBlur: 2px;
+    /* Cookie Icon */
+    --cookieIconColor: {{ check_core_table_exist.records.results[0].properties['Icon background color'] | default: '#533BE2' }};
+    --cookieIconBackgroundColor: {{ check_core_table_exist.records.results[0].properties['Icon text color'] | default: '#FFFFFF' }};
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99999;
+    pointer-events: none;
+    border: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   /* Backdrop (Global */
   #silktide-backdrop-global {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: auto;
-      border: 0px;
-      display: none;
-  }
-
-  #silktide-banner{
-      position: fixed;
-      bottom: 16px;
-      right: 16px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+    border: 0px;
+    display: none;
   }
 
   /* --------------------------------
-  Backdrop
-  -------------------------------- */
-  #silktide-backdrop {
-      display: none;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: var(--backdropBackgroundColor);
-      backdrop-filter: blur(var(--backdropBackgroundBlur));
-      pointer-events: all;
-  }
-</style>
-
-<style>
-
-    /* --------------------------------
     Links
-    -------------------------------- */
-    #silktide-wrapper a {
+  -------------------------------- */
+  #silktide-wrapper a {
     all: unset;
     display: inline-block;
     color: var(--primaryColor);
     text-decoration: underline;
-    }
+  }
 
-    #silktide-wrapper a:hover {
+  #silktide-wrapper a:hover {
     cursor: pointer;
     color: var(--textColor);
-    }
+  }
 
-    /* --------------------------------
+  /* --------------------------------
     Focus Styles
-    -------------------------------- */
-    #silktide-wrapper a:focus,
-    #silktide-wrapper #silktide-banner button:focus,
-    #silktide-wrapper #silktide-modal button:focus,
-    #silktide-wrapper #silktide-cookie-icon:focus {
+  -------------------------------- */
+  #silktide-wrapper a:focus,
+  #silktide-wrapper #silktide-banner button:focus,
+  #silktide-wrapper #silktide-modal button:focus,
+  #silktide-wrapper #silktide-cookie-icon:focus {
     outline: none;
     box-shadow: var(--focus);
     border-radius: 5px;
-    }
+  }
 
-    #silktide-wrapper #silktide-cookie-icon:focus {
+  #silktide-wrapper #silktide-cookie-icon:focus {
     border-radius: 50%;
-    }
+  }
 
-    /* --------------------------------
+  /* --------------------------------
     Banner
-    -------------------------------- */
-    #silktide-banner {
+  -------------------------------- */
+  #silktide-banner {
     font-family: var(--fontFamily);
     color: var(--textColor);
     background-color: var(--backgroundColor);
@@ -108,6 +93,9 @@
     border-radius: 5px;
     pointer-events: auto;
     border: 0px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
     width: 600px;
     max-width: calc(100% - 32px);
     transform: translate(0, -20px);
@@ -115,13 +103,13 @@
     animation: silktide-slideInDown 350ms ease-out forwards;
     animation-delay: 0.3s;
     box-shadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
-    }
+  }
 
-    #silktide-banner:focus {
+  #silktide-banner:focus {
     border-radius: 50%;
-    }
+  }
 
-    #silktide-banner.center {
+  #silktide-banner.center {
     top: 50%;
     left: 50%;
     bottom: auto;
@@ -129,30 +117,30 @@
     position: fixed;
     transform: translate(-50%, calc(-50% - 20px));
     animation: silktide-slideInDown-center 350ms ease-out forwards;
-    }
+  }
 
-    #silktide-banner.bottomLeft {
+  #silktide-banner.bottomLeft {
     bottom: 16px;
     left: 16px;
     position: fixed;
-    }
+  }
 
-    #silktide-banner.bottomCenter {
+  #silktide-banner.bottomCenter {
     bottom: 16px;
     left: 50%;
     position: fixed;
     transform: translate(-50%, -20px);
     animation: silktide-slideInDown-bottomCenter 350ms ease-out forwards;
-    }
+  }
 
-    /* display the actions slighly differently when the reject button is enabled  */
-    #silktide-banner.show-reject .actions:last-of-type {
+  /* display the actions slighly differently when the reject button is enabled  */
+  #silktide-banner.show-reject .actions:last-of-type {
     flex-direction: row;
     align-items: center;
     margin-top: 24px;
-    }
+  }
 
-    #silktide-banner.show-reject .preferences {
+  #silktide-banner.show-reject .preferences {
     display: flex;
     gap: 5px;
     border: none;
@@ -161,62 +149,62 @@
     color: var(--primaryColor);
     cursor: pointer;
     font-size: 16px;
-    }
+  }
 
-    #silktide-banner.show-reject .preferences span {
+  #silktide-banner.show-reject .preferences span {
     display: block;
     white-space: nowrap;
     text-decoration: underline;
-    }
+  }
 
-    #silktide-banner.show-reject .preferences span:hover {
+  #silktide-banner.show-reject .preferences span:hover {
     color: var(--textColor);
-    }
+  }
 
-    #silktide-banner.show-reject .preferences:after {
+  #silktide-banner.show-reject .preferences:after {
     display: block;
     content: '>';
     text-decoration: none;
-    }
+  }
 
-    #silktide-banner p {
+  #silktide-banner p {
     font-size: 16px;
     line-height: 24px;
     margin: 0px 0px 24px;
-    }
+  }
 
-    #silktide-banner a {
+  #silktide-banner a {
     display: inline-block;
     color: var(--primaryColor);
     text-decoration: underline;
     background-color: var(--backgroundColor);
-    }
+  }
 
-    #silktide-banner a:hover {
+  #silktide-banner a:hover {
     color: var(--textColor);
-    }
+  }
 
-    #silktide-banner a.silktide-logo {
-    display: none;
+  #silktide-banner a.silktide-logo {
+    display: block;
     fill: var(--primaryColor); /* passed down to svg > path */
     margin-left: auto;
     width: 24px;
     height: 24px;
-    }
+  }
 
-    /* Buttons */
-    #silktide-wrapper .actions {
+  /* Buttons */
+  #silktide-wrapper .actions {
     display: flex;
     gap: 16px;
     flex-direction: column;
 
     @media (min-width: 500px) {
-        flex-direction: row;
-        align-items: center;
+      flex-direction: row;
+      align-items: center;
     }
-    }
+  }
 
-    #silktide-wrapper .st-button {
+  #silktide-wrapper .st-button {
     color: var(--backgroundColor);
     background-color: var(--primaryColor);
     border: 2px solid var(--primaryColor);
@@ -228,30 +216,30 @@
     line-height: 24px;
     cursor: pointer;
     border-radius: 5px;
-    }
+  }
 
-    #silktide-wrapper .st-button--primary {
-    }
+  #silktide-wrapper .st-button--primary {
+  }
 
-    #silktide-wrapper .st-button--primary:hover {
+  #silktide-wrapper .st-button--primary:hover {
     background-color: var(--backgroundColor);
     color: var(--primaryColor);
-    }
+  }
 
-    #silktide-wrapper .st-button--secondary {
+  #silktide-wrapper .st-button--secondary {
     background-color: var(--backgroundColor);
     color: var(--primaryColor);
-    }
+  }
 
-    #silktide-wrapper .st-button--secondary:hover {
+  #silktide-wrapper .st-button--secondary:hover {
     background-color: var(--primaryColor);
     color: var(--backgroundColor);
-    }
+  }
 
-    /* --------------------------------
+  /* --------------------------------
     Modal
-    -------------------------------- */
-    #silktide-modal {
+  -------------------------------- */
+  #silktide-modal {
     display: none;
     pointer-events: auto;
     width: 800px;
@@ -269,28 +257,28 @@
     background-color: var(--backgroundColor);
     border-radius: 5px;
     box-sizing: border-box;
-    }
+  }
 
-    /* --------------------------------
+  /* --------------------------------
     Modal - Header
-    -------------------------------- */
-    #silktide-modal header {
+  -------------------------------- */
+  #silktide-modal header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
     gap: 16px;
-    }
+  }
 
-    #silktide-modal h1 {
+  #silktide-modal h1 {
     font-family: var(--fontFamily);
     color: var(--textColor);
     font-size: 24px;
     font-weight: 500;
     margin: 0px;
-    }
+  }
 
-    #silktide-modal .modal-close {
+  #silktide-modal .modal-close {
     display: inline-flex;
     border: none;
     padding: 10px;
@@ -298,99 +286,99 @@
     cursor: pointer;
     background: var(--backgroundColor);
     color: var(--primaryColor);
-    }
+  }
 
-    #silktide-modal .modal-close svg {
+  #silktide-modal .modal-close svg {
     fill: var(--primaryColor);
-    }
+  }
 
-    /* --------------------------------
+  /* --------------------------------
     Modal - Content
-    -------------------------------- */
+  -------------------------------- */
 
-    #silktide-modal section {
+  #silktide-modal section {
     flex: 1;
     overflow-y: auto;
     margin-top: 32px;
     padding-right: 7px; /* Prevents scrollbar from appearing over the switches */
-    }
+  }
 
-    #silktide-modal section::-webkit-scrollbar {
+  #silktide-modal section::-webkit-scrollbar {
     display: block; /* Force scrollbars to show */
     width: 5px; /* Width of the scrollbar */
-    }
+  }
 
-    #silktide-modal section::-webkit-scrollbar-thumb {
+  #silktide-modal section::-webkit-scrollbar-thumb {
     background-color: var(--textColor); /* Color of the scrollbar thumb */
     border-radius: 10px; /* Rounded corners for the thumb */
-    }
+  }
 
-    #silktide-modal p {
+  #silktide-modal p {
     font-size: 16px;
     line-height: 24px;
     color: var(--textColor);
     margin: 0px;
-    }
+  }
 
-    #silktide-modal fieldset {
+  #silktide-modal fieldset {
     padding: 0px;
     border: none;
     margin: 0px 0px 32px;
-    }
+  }
 
-    #silktide-modal fieldset:last-of-type {
+  #silktide-modal fieldset:last-of-type {
     margin: 0px;
-    }
+  }
 
-    #silktide-modal legend {
+  #silktide-modal legend {
     padding: 0px;
     margin: 0px 0px 10px;
     font-weight: 700;
     color: var(--textColor);
     font-size: 16px;
-    }
+  }
 
-    #silktide-modal .cookie-type-content {
+  #silktide-modal .cookie-type-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     gap: 24px;  
-    }
+  }
 
-    /* --------------------------------
+  /* --------------------------------
     Modal - Switches
-    -------------------------------- */
-    #silktide-modal .switch {
+  -------------------------------- */
+  #silktide-modal .switch {
     flex-shrink: 0;
     position: relative;
     display: inline-block;
     height: 34px;
     width: 74px;
     cursor: pointer;
-    }
+  }
 
-    #silktide-modal .switch:focus-within {
+  #silktide-modal .switch:focus-within {
     outline: none;
     box-shadow: var(--focus);
     border-radius: 25px;
-    }
+  }
 
-    #silktide-modal .switch input {
+  #silktide-modal .switch input {
     opacity: 0;
     position: absolute;
-    }
+  }
 
-    /* Unchecked Switch Styles */
-    #silktide-modal .switch__pill {
+  /* Unchecked Switch Styles */
+  #silktide-modal .switch__pill {
     position: relative;
     display: block;
     height: 34px;
     width: 74px;
     background: var(--textColor);
     border-radius: 25px;
-    }
+  }
 
-    #silktide-modal .switch__dot {
+  #silktide-modal .switch__dot {
     position: absolute;
     top: 2px;
     left: 2px;
@@ -400,10 +388,10 @@
     background: var(--backgroundColor);
     border-radius: 50%;
     transition: left 150ms ease-out;
-    }
+  }
 
-    #silktide-modal .switch__off,
-    #silktide-modal .switch__on {
+  #silktide-modal .switch__off,
+  #silktide-modal .switch__on {
     text-transform: uppercase;
     font-size: 15px;
     font-weight: 500;
@@ -412,65 +400,64 @@
     top: 7px;
     right: 8px;
     transition: right 150ms ease-out, opacity 150ms ease-out;
-    }
+  }
 
-    #silktide-modal .switch__off {
+  #silktide-modal .switch__off {
     opacity: 1;
-    }
+  }
 
-    #silktide-modal .switch__on {
+  #silktide-modal .switch__on {
     opacity: 0;
-    }
+  }
 
-    /* Checked Switch Styles */
-    #silktide-modal .switch input:checked + .switch__pill {
+  /* Checked Switch Styles */
+  #silktide-modal .switch input:checked + .switch__pill {
     background: var(--primaryColor);
-    }
+  }
 
-    #silktide-modal .switch input:checked ~ .switch__dot {
+  #silktide-modal .switch input:checked ~ .switch__dot {
     left: calc(100% - 32px);
-    }
+  }
 
-    #silktide-modal .switch input:checked ~ .switch__off {
+  #silktide-modal .switch input:checked ~ .switch__off {
     right: calc(100% - 32px);
     opacity: 0;
-    }
+  }
 
-    #silktide-modal .switch input:checked ~ .switch__on {
+  #silktide-modal .switch input:checked ~ .switch__on {
     right: calc(100% - 34px);
     opacity: 1;
-    }
+  }
 
-    /* Disabled Switch Styles */
-    #silktide-modal .switch input:disabled + .switch__pill {
+  /* Disabled Switch Styles */
+  #silktide-modal .switch input:disabled + .switch__pill {
     opacity: 0.65;
     cursor: not-allowed;
-    }
+  }
 
-    /* --------------------------------
+  /* --------------------------------
     Modal - Footer
-    -------------------------------- */
-    #silktide-modal footer {
+  -------------------------------- */
+  #silktide-modal footer {
     display: flex;
     flex-direction: column;
     gap: 16px;
     margin-top: 24px;
-    }
+  }
 
-    @media (min-width: 500px) {
+  @media (min-width: 500px) {
     #silktide-modal footer {
-        flex-direction: row;
-        align-items: center;
+      flex-direction: row;
+      align-items: center;
     }
-    }
+  }
 
-    #silktide-modal footer a {
+  #silktide-modal footer a {
     margin-left: auto;
-    display: none;
-    }
+  }
 
-    /* Cookie Icon */
-    #silktide-cookie-icon {
+  /* Cookie Icon */
+  #silktide-cookie-icon {
     display: none;
     position: fixed;
     bottom: 10px;
@@ -487,73 +474,87 @@
     box-shadow: 0px 0px 6px 0px #0000001a;
     pointer-events: auto;
     animation: silktide-fadeIn 0.3s ease-in-out forwards;
-    }
+  }
 
-    #silktide-cookie-icon.bottomRight {
+  #silktide-cookie-icon.bottomRight {
     left: auto;
     right: 10px;
-    }
+  }
 
-    #silktide-cookie-icon svg {
+  #silktide-cookie-icon svg {
     fill: var(--cookieIconBackgroundColor);
-    }
+  }
 
+  /* --------------------------------
+    Backdrop
+  -------------------------------- */
+  #silktide-backdrop {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backdropBackgroundColor);
+    backdrop-filter: blur(var(--backdropBackgroundBlur));
+    pointer-events: all;
+  }
 
-    /* --------------------------------
+  /* --------------------------------
     Animations
-    -------------------------------- */
-    @keyframes silktide-fadeIn {
+  -------------------------------- */
+  @keyframes silktide-fadeIn {
     from {
-        opacity: 0;
+      opacity: 0;
     }
     to {
-        opacity: 1;
+      opacity: 1;
     }
-    }
+  }
 
-    @keyframes silktide-slideInDown {
+  @keyframes silktide-slideInDown {
     from {
-        opacity: 0;
-        transform: translateY(-20px);
+      opacity: 0;
+      transform: translateY(-20px);
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
     }
-    }
+  }
 
-    @keyframes silktide-slideInDown-center {
+  @keyframes silktide-slideInDown-center {
     from {
-        opacity: 0;
-        transform: translate(-50%, calc(-50% - 20px));
+      opacity: 0;
+      transform: translate(-50%, calc(-50% - 20px));
     }
     to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
+      opacity: 1;
+      transform: translate(-50%, -50%);
     }
-    }
+  }
 
-    @keyframes silktide-slideInDown-bottomCenter {
+  @keyframes silktide-slideInDown-bottomCenter {
     from {
-        opacity: 0;
-        transform: translate(-50%, -20px);
+      opacity: 0;
+      transform: translate(-50%, -20px);
     }
     to {
-        opacity: 1;
-        transform: translate(-50%, 0);
+      opacity: 1;
+      transform: translate(-50%, 0);
     }
-    }
+  }
 
-    @keyframes silktide-slideInUp-center {
+  @keyframes silktide-slideInUp-center {
     from {
-        opacity: 0;
-        transform: translate(0px, 20px);
+      opacity: 0;
+      transform: translate(0px, 20px);
     }
     to {
-        opacity: 1;
-        transform: translate(0px, 0px);
+      opacity: 1;
+      transform: translate(0px, 0px);
     }
-    }
+  }
 </style>
 
 <script src="{{ 'modules/module_291/js/silktide-cookie-banner.js' | asset_url }}"></script>
