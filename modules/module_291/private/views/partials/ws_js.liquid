@@ -59,6 +59,20 @@
             bottom: 16px;
             right: 16px;
         }
+        /* --------------------------------
+        Backdrop
+        -------------------------------- */
+        #silktide-backdrop {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--backdropBackgroundColor);
+            backdrop-filter: blur(var(--backdropBackgroundBlur));
+            pointer-events: all;
+        }
     </style>
 {% endif %}
 
@@ -497,20 +511,6 @@
   fill: var(--cookieIconBackgroundColor);
 }
 
-/* --------------------------------
-  Backdrop
--------------------------------- */
-#silktide-backdrop {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--backdropBackgroundColor);
-  backdrop-filter: blur(var(--backdropBackgroundBlur));
-  pointer-events: all;
-}
 
 /* --------------------------------
   Animations
