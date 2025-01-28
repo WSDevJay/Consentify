@@ -12,10 +12,9 @@ layout: modules/module_291/templates/1
 {% graphql check_core_table_exist = "modules/module_291/properties/check_core_table_exist" %}
 {% if check_core_table_exist.records.results.size == 0 %}
 	{% graphql generate_table = "modules/module_291/properties/generate_table" %}
+	Creating table
 {% else %}
-	<script>
-		console.log('Table Already Created!');
-	</script>
+	Table is Already Created!
 {% endif %}
 
 <h1>Cookie Settings</h1>
