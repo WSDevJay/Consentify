@@ -2,8 +2,10 @@ mutation(
 	$background: String!
 	$text: String!
 	$primarycolor: String!
+	$id: ID
 ) {
-	record_create(
+	record_update(
+		id: $id,
 		record:{
 			table: "modules/module_291/information"
 			properties:[
@@ -13,11 +15,11 @@ mutation(
 				},
 				{
 					name:"Text"
-					value:$text
+					value: $text
 				},
 				{
 					name:"Primary Color"
-					value:$primarycolor
+					value: $primarycolor
 				}
 			]
 		}
