@@ -12,7 +12,7 @@ mutation {
 					value: null
 				},
 				{
-					name: "Primary_color",
+					name: "Primary color",
 					value: null
 				},
 				{
