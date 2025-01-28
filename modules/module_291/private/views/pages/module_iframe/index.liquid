@@ -23,14 +23,21 @@ layout: modules/module_291/templates/1
 <pre>{% raw %}{% include 'modules/module_291/ws_cb' %}{% endraw %}</pre>
 
 <form data-form="create">
+	<h3>Color scheme</h3>
 	<label for="name">Background* :</label>
 	<input required name="background" id="background" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Background'] }}">
-
 	<label for="text">Text* :</label>
 	<input required name="text" id="text" class="form-control mb-4" type="color" value="{{ check_core_table_exist.records.results[0].properties['Text'] }}">
-
 	<label for="primaryColor">Primary color* :</label>
 	<input required name="primarycolor" id="primarycolor" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Primary color'] }}">
+
+	<h3>Position</h3>
+	<select required name="position" id="position" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Position'] }}">
+		<option value="Center">Center</option>
+		<option value="BottomLeft">BottomLeft</option>
+		<option value="BottomRight">BottomRight</option>
+		<option value="BottomCenter">BottomCenter</option>
+	</select>
 
 	<button class="btn btn-primary mb-5" id="submitBtn">Save</button>
 </form>

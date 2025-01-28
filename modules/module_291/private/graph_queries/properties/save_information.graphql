@@ -2,6 +2,7 @@ mutation(
 	$background: String!
 	$text: String!
 	$primarycolor: String!
+	$position: String!
 	$id: ID
 ) {
 	record_update(
@@ -20,6 +21,10 @@ mutation(
 				{
 					name:"Primary color"
 					value: $primarycolor
+				},
+				{
+					name:"Position"
+					value: $position
 				}
 			]
 		}
