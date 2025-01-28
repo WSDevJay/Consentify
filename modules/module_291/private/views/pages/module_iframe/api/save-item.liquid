@@ -13,9 +13,9 @@ authorization_policies:
 {% endparse_json -%}
 {% graphql check_core_table_exist = "modules/module_291/properties/check_core_table_exist" %}
 {% graphql save_information = "modules/module_291/properties/save_information", 
-  background: data.name, 
+  background: data.background, 
   text: data.text,
   primarycolor: data.primarycolor,
-  id: '8'
+  id: check_core_table_exist.records.results[0].id
 %}
 {{save_information}}
