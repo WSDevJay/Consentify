@@ -651,8 +651,8 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       creditText: "Get this banner for free"
     }
   },
-  banner: {
-    position: "{{ check_core_table_exist.records.results[0].properties['Position'] | default: 'bottomLeft' }}"
+  position: {
+    banner: "{{ check_core_table_exist.records.results[0].properties['Position'] | default: 'bottomLeft' }}"
   }
 });
 </script>
