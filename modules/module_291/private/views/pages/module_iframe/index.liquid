@@ -12,9 +12,6 @@ layout: modules/module_291/templates/1
 {% graphql check_core_table_exist = "modules/module_291/properties/check_core_table_exist" %}
 {% if check_core_table_exist.records.results.size == 0 %}
 	{% graphql generate_table = "modules/module_291/properties/generate_table" %}
-	Creating table
-{% else %}
-	Table is Already Created!
 {% endif %}
 
 <h1>Cookie Settings</h1>
@@ -22,13 +19,13 @@ layout: modules/module_291/templates/1
 
 <form data-form="create">
 	<label for="name">Background* :</label>
-	<input required name="background" id="background" type="text" class="form-control mb-4">
+	<input required name="background" id="background" type="text" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Background'] }}">
 
 	<label for="text">Text* :</label>
-	<input required name="text" id="text" class="form-control mb-4" type="text">
+	<input required name="text" id="text" class="form-control mb-4" type="text" value="{{ check_core_table_exist.records.results[0].properties['Text'] }}">
 
 	<label for="primaryColor">Primary color* :</label>
-	<input required name="primarycolor" id="primarycolor" type="text" class="form-control mb-4">
+	<input required name="primarycolor" id="primarycolor" type="text" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Primary color'] }}">
 
 	<button class="btn btn-primary mb-5" id="submitBtn">Submit</button>
 </form>

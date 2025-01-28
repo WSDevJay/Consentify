@@ -1,4 +1,13 @@
+{% graphql check_core_table_exist = "modules/module_291/properties/check_core_table_exist" %}
+
 <link rel="stylesheet" id="silktide-cookie-banner-css" href="{{ 'modules/module_291/css/silktide-cookie-banner.css' | asset_url }}">
+<style>
+    #silktide-wrapper {
+        --primaryColor: {{ check_core_table_exist.records.results[0].properties['Primary color'] |  default: '#533BE2' }};
+        --backgroundColor: {{ check_core_table_exist.records.results[0].properties['Background'] |  default: '#FFFFFF' }};
+        --textColor: {{ check_core_table_exist.records.results[0].properties['Text'] |  default: '#4B494B' }};
+    }
+</style>
 <script src="{{ 'modules/module_291/js/silktide-cookie-banner.js' | asset_url }}"></script>
 <script>
 silktideCookieBannerManager.updateCookieBannerConfig({
