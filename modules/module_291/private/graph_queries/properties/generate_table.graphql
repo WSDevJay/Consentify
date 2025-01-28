@@ -22,6 +22,18 @@ mutation {
 				{
 					name: "Compliance",
 					value: null
+				},
+				{
+					name: "Icon position",
+					value: null
+				},
+				{
+					name: "Icon background color",
+					value: null
+				},
+				{
+					name: "Icon text color",
+					value: null
 				}
 			]
 		}

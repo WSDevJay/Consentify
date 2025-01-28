@@ -4,6 +4,9 @@ mutation(
 	$primarycolor: String!
 	$position: String!
 	$compliance: String!
+	$iconposition: String!
+	$icontextcolor: String!
+	$iconbgcolor: String!
 	$id: ID
 ) {
 	record_update(
@@ -30,6 +33,18 @@ mutation(
 				{
 					name: "Compliance",
 					value: $compliance
+				},
+				{
+					name: "Icon position",
+					value: $iconposition
+				},
+				{
+					name: "Icon background color",
+					value: $iconbgcolor
+				},
+				{
+					name: "Icon text color",
+					value: $icontextcolor
 				}
 			]
 		}

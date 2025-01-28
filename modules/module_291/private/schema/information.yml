@@ -10,3 +10,9 @@ properties:
   type: string
 - name: Compliance
   type: string
+- name: Icon position
+  type: string
+- name: Icon background color
+  type: string
+- name: Icon text color
+  type: string
