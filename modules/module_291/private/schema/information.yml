@@ -8,3 +8,5 @@ properties:
   type: string
 - name: Position
   type: string
+- name: Compliance
+  type: string

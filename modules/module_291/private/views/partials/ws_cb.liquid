@@ -8,11 +8,14 @@
             --focus: 0 0 0 2px #ffffff, 0 0 0 4px #000000, 0 0 0 6px #ffffff;
             --boxShadow: -5px 5px 10px 0px #00000012, 0px 0px 50px 0px #0000001a;
             --fontFamily: Helvetica Neue, Segoe UI, Arial, sans-serif;
+
             --primaryColor: {{ check_core_table_exist.records.results[0].properties['Primary color'] |  default: '#533BE2' }};
             --backgroundColor: {{ check_core_table_exist.records.results[0].properties['Background'] |  default: '#FFFFFF' }};
             --textColor: {{ check_core_table_exist.records.results[0].properties['Text'] |  default: '#4B494B' }};
+
             --backdropBackgroundColor: undefined;
             --backdropBackgroundBlur: 2px;
+
             --cookieIconColor: #533BE2;
             --cookieIconBackgroundColor: #FFFFFF;
         }
@@ -634,7 +637,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     }
   ],
   compliance: {
-    complianceLink: "https://your-website.com/cookie-policy",
+    complianceLink: "{{ check_core_table_exist.records.results[0].properties['Compliance'] | default: 'bottomLeft' }}",
     showRejectButton: false
   },
   text: {

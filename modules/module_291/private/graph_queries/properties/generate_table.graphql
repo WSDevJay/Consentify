@@ -18,6 +18,10 @@ mutation {
 				{
 					name: "Position",
 					value: null
+				},
+				{
+					name: "Compliance",
+					value: null
 				}
 			]
 		}

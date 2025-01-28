@@ -8,15 +8,14 @@ response_headers: >
 authorization_policies:
   - modules/siteglide_system/module_is_in_admin
 ---
-{% parse_json data -%}
-{{context.post_params}}
-{% endparse_json -%}
+{% parse_json data -%}{{context.post_params}}{% endparse_json -%}
 {% graphql check_core_table_exist = "modules/module_291/properties/check_core_table_exist" %}
 {% graphql save_information = "modules/module_291/properties/save_information", 
   background: data.background, 
   text: data.text,
   primarycolor: data.primarycolor,
   position: data.position,
+  compliance: data.compliance,
   id: check_core_table_exist.records.results[0].id
 %}
 {{save_information}}

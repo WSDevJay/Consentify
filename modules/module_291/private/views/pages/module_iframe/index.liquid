@@ -39,6 +39,10 @@ layout: modules/module_291/templates/1
 		<option value="bottomCenter" {% if check_core_table_exist.records.results[0].properties['Position'] == 'bottomCenter' %}selected{% endif %}>BottomCenter</option>
 	</select>
 
+	<h3>Compliance</h3>
+	<label for="">Cookie Policy URL</label>
+	<input required name="compliance" id="compliance" type="text" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Compliance'] }}">
+
 	<button class="btn btn-primary mb-5" id="submitBtn">Save</button>
 </form>
 
