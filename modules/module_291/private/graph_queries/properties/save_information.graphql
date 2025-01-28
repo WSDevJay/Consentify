@@ -25,5 +25,6 @@ mutation(
 		}
 	){
 		id
+		properties
 	}
 }
