@@ -15,7 +15,19 @@ layout: modules/module_291/templates/1
 {% endif %}
 
 <h1>Manage Your Cookie Settings</h1>
-<p>To integrate this module, copy the tag and paste it into your site's <strong>body</strong> section, either before the opening <code>&lt;body&gt;</code> tag or just before the closing <code>&lt;/body&gt;</code> tag: <code>{% raw %}{% include 'modules/module_291/ws_cb' %}{% endraw %}</code></p>
+<p>
+  To integrate this module, copy the tags and paste them into your site as follows:
+</p>
+<ul>
+  <li>
+    In the <strong>head</strong> section, include: 
+    <code>{% raw %}{% include 'modules/module_291/ws_cb_head' %}{% endraw %}</code>
+  </li>
+  <li>
+    In the <strong>body</strong> section, include: 
+    <code>{% raw %}{% include 'modules/module_291/ws_cb_body' %}{% endraw %}</code>
+  </li>
+</ul>
 
 <form data-form="create">
 	<h3>Color scheme</h3>
