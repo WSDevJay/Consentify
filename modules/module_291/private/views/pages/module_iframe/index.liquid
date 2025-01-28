@@ -63,10 +63,11 @@ layout: modules/module_291/templates/1
 				text: 'Your updates have been successfully saved.',
 				icon: 'success',
 				confirmButtonText: 'Great!',
-				timer: 4000,
+				timer: 2000,
 				timerProgressBar: true,
+			}).then(() => {
+				window.location.href = "/module_291/module_iframe/index?{% include 'modules/siteglide_system/modules/auth' -%}";
 			});
-			window.location.href="/module_291/module_iframe/index?{% include 'modules/siteglide_system/modules/auth' -%}"
 		})
 	};
 	const Create = event => {
