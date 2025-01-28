@@ -1,0 +1,11 @@
+query MyQuery {
+  records(
+    per_page: 1
+    page: 1
+    filter: {table: {value: "modules/module_291/information"}}
+  ) {
+    results {
+      id
+    }
+  }
+}

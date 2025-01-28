@@ -1,6 +1,11 @@
 name: information
 properties:
-- name: name
+- name: Background
   type: string
-- name: color
+- name: Text
   type: string
+- name: Primary color
+  type: string
+- name: Position
+  type: select
+  options: Center,Bottom left,Bottom right,Bottom center

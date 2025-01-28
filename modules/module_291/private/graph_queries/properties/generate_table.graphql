@@ -1,0 +1,27 @@
+mutation {
+	record_create(
+		record:{
+			table: "modules/module_291/information"
+			properties:[
+				{
+					name: "Background",
+					value: null
+				},
+				{
+					name: "Text",
+					value: null
+				},
+				{
+					name: "Primary_color",
+					value: null
+				},
+				{
+					name: "Position",
+					value: null
+				}
+			]
+		}
+	){
+		id
+	}
+}

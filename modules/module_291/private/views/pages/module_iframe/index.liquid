@@ -8,69 +8,56 @@ authorization_policies:
   - modules/siteglide_system/module_is_in_admin
 layout: modules/module_291/templates/1
 ---
-{% graphql data = "modules/module_291/properties/get_properties" %}
-<h1>All Properties</h1>
-<div class="row justify-between">
-	<div class="col">
-		<a class="btn btn-primary" href="/module_291/module_iframe/add?{% include 'modules/siteglide_system/modules/auth' -%}">Add property</a>
-	</div>
-	<div class="col text-end">
-		<a class="btn btn-primary" href="https://{{context.location.host}}/properties" target="_blank">View on site</a>
-	</div>
-</div>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<td>
-			</td>
-			<td>
-				ID:
-			</td>
-			<td>
-				Name:
-			</td>
-			<td>
-				Location:
-			</td>
-			<td>
-				Bedrooms:
-			</td>
-			<td>
-				Bathrooms:
-			</td>
-			<td>
-				Added on:
-			</td>
-		</tr>
-	</thead>
-	<tbody>
-		{% for item in data.data.results -%}
-			<tr>
-				<td>
-					<img src="{{item.image.versions.thumbnail}}" alt="{{item.properties.name}}" width="100">
-				</td>
-				<td>
-					{{item.id}}
-				</td>
-				<td>
-					{{item.properties.name}}
-				</td>
-				<td>
-					{{item.properties.location}}
-				</td>
-				<td>
-					{{item.properties.bedrooms}}
-				</td>
-				<td>
-					{{item.properties.bathrooms}}
-				</td>
-				<td>
-					{{item.created_at | date: "%e %B %Y"}}
-				</td>
-				<td>
-					<a class="btn btn-primary" href="/module_291/module_iframe/view/{{item.id}}?{% include "modules/siteglide_system/modules/auth" -%}">View</a>
-				</td>
-			</tr>
-		{% endfor -%}
-	</tbody>
-</table>
+
+{% graphql check_core_table_exist = "modules/module_291/properties/check_core_table_exist" %}
+
+{% if check_core_table_exist.records.results.size == 0 %}
+	{% graphql gemerate_table = "modules/module_291/properties/gemerate_table" %}
+{% else %}
+	<script>
+		console.log('Table Already Created!');
+	</script>
+{% endif %}
+
+<h1>Cookie Settings</h1>
+<p>Copy this tag and paste into the site head snippet: {% raw %}{% include 'modules/module_291/ws_js' %}{% endraw %}</p>
+
+<form data-form="create">
+	<label for="name">Background* :</label>
+	<input required name="background" id="background" type="text" class="form-control mb-4">
+	<label for="text">Text* :</label>
+	<input required name="text" id="text" class="form-control mb-4" type="text">
+	<label for="primaryColor">Primary color* :</label>
+	<input required name="primarycolor" id="primarycolor" type="text" class="form-control mb-4">
+	<button class="btn btn-primary mb-5" id="submitBtn">Submit</button>
+</form>
+
+<script>
+	const request = ({ form }) => {
+		var formData = new FormData(form);
+		var data = {};
+		for(var field of formData.entries()) {
+			data[field[0]] = field[1];
+		}
+
+		fetch('/module_291/module_iframe/api/add-item?{% include "modules/siteglide_system/modules/auth" -%}', {
+		credentials: "same-origin",
+		method: "POST",
+		body: JSON.stringify(data),
+		headers: {
+			SEC_FETCH_DEST: 'iframe'
+		}
+		}).then(() => {
+			alert("New property added!");
+			window.location.href="/module_291/module_iframe/index?{% include 'modules/siteglide_system/modules/auth' -%}"
+		})
+	};
+	const Create = event => {
+		event.preventDefault();
+		request({
+			form: event.target
+		})
+	};
+	const createForm = document.querySelector('[data-form="create"]');
+	createForm.addEventListener("submit", Create);
+</script>
