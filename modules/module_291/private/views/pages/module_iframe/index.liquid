@@ -24,15 +24,15 @@ layout: modules/module_291/templates/1
 
 <form data-form="create">
 	<label for="name">Background* :</label>
-	<input required name="background" id="background" type="text" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Background'] }}">
+	<input required name="background" id="background" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Background'] }}">
 
 	<label for="text">Text* :</label>
-	<input required name="text" id="text" class="form-control mb-4" type="text" value="{{ check_core_table_exist.records.results[0].properties['Text'] }}">
+	<input required name="text" id="text" class="form-control mb-4" type="color" value="{{ check_core_table_exist.records.results[0].properties['Text'] }}">
 
 	<label for="primaryColor">Primary color* :</label>
-	<input required name="primarycolor" id="primarycolor" type="text" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Primary color'] }}">
+	<input required name="primarycolor" id="primarycolor" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Primary color'] }}">
 
-	<button class="btn btn-primary mb-5" id="submitBtn">Submit</button>
+	<button class="btn btn-primary mb-5" id="submitBtn">Save</button>
 </form>
 
 <script>
@@ -51,7 +51,14 @@ layout: modules/module_291/templates/1
 			SEC_FETCH_DEST: 'iframe'
 		}
 		}).then(() => {
-			alert("Updated!");
+			Swal.fire({
+				title: 'Changes Saved!',
+				text: 'Your updates have been successfully saved.',
+				icon: 'success',
+				confirmButtonText: 'Great!',
+				timer: 2000,
+				timerProgressBar: true,
+			});
 			window.location.href="/module_291/module_iframe/index?{% include 'modules/siteglide_system/modules/auth' -%}"
 		})
 	};
