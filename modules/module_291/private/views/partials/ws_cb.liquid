@@ -621,7 +621,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     }
   ],
   compliance: {
-    complianceLink: "{{ check_core_table_exist.records.results[0].properties['Compliance'] | default: 'bottomLeft' }}",
+    complianceLink: "{{ check_core_table_exist.records.results[0].properties['Compliance'] }}",
     showRejectButton: false
   },
   text: {
