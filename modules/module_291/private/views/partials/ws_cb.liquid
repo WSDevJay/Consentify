@@ -15,8 +15,8 @@
       --backdropBackgroundColor: undefined;
       --backdropBackgroundBlur: 2px;
 
-      --cookieIconColor: {{ check_core_table_exist.records.results[0].properties['Icon text color'] | default: '#533BE2' }};
-      --cookieIconBackgroundColor: {{ check_core_table_exist.records.results[0].properties['Icon background color'] | default: '#FFFFFF' }};
+      --cookieIconColor: {{ check_core_table_exist.records.results[0].properties['Icon background color'] | default: '#533BE2' }};
+      --cookieIconBackgroundColor: {{ check_core_table_exist.records.results[0].properties['Icon text color'] | default: '#FFFFFF' }};
       
       position: fixed;
       bottom: 0;
@@ -48,7 +48,7 @@
       bottom: 16px;
       right: 16px;
   }
-  
+
   /* --------------------------------
   Backdrop
   -------------------------------- */
