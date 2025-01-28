@@ -33,7 +33,7 @@ layout: modules/module_291/templates/1
 
 	<h3>Banner</h3>
 	<label for="">Position</label>
-	<select required name="position" id="position" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Position'] }}">
+	<select required name="position" id="position" class="form-control mb-4">
 		<option value="">--Please Select--</option>
 		<option value="center" {% if check_core_table_exist.records.results[0].properties['Position'] == 'center' %}selected{% endif %}>Center</option>
 		<option value="bottomLeft" {% if check_core_table_exist.records.results[0].properties['Position'] == 'bottomLeft' %}selected{% endif %}>BottomLeft</option>
@@ -43,13 +43,13 @@ layout: modules/module_291/templates/1
 
 	<h3>Icon</h3>
 	<label for="">Position</label>
-	<select required name="iconposition" id="iconposition" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Icon position'] }}">
+	<select required name="iconposition" id="iconposition" class="form-control mb-4">
 		<option value="">--Please Select--</option>
 		<option value="bottomLeft" {% if check_core_table_exist.records.results[0].properties['Icon position'] == 'bottomLeft' %}selected{% endif %}>BottomLeft</option>
 		<option value="bottomRight" {% if check_core_table_exist.records.results[0].properties['Icon position'] == 'bottomRight' %}selected{% endif %}>BottomRight</option>
 	</select>
 	<label for="name">Icon Background* :</label>
-	<input required name="iconposition" id="iconposition" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Icon background color'] | default: '#FFFFFF' }}">
+	<input required name="iconbgcolor" id="iconbgcolor" type="color" class="form-control mb-4" value="{{ check_core_table_exist.records.results[0].properties['Icon background color'] | default: '#FFFFFF' }}">
 	<label for="text">Icon Text Color* :</label>
 	<input required name="icontextcolor" id="icontextcolor" class="form-control mb-4" type="color" value="{{ check_core_table_exist.records.results[0].properties['Icon text color'] | default: '#533BE2' }}">
 
