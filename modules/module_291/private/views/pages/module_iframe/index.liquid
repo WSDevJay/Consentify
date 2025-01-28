@@ -40,7 +40,7 @@ layout: modules/module_291/templates/1
 			data[field[0]] = field[1];
 		}
 
-		fetch('/module_291/module_iframe/api/add-item?{% include "modules/siteglide_system/modules/auth" -%}', {
+		fetch('/module_291/module_iframe/api/save-item?{% include "modules/siteglide_system/modules/auth" -%}', {
 		credentials: "same-origin",
 		method: "POST",
 		body: JSON.stringify(data),

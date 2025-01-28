@@ -1,0 +1,27 @@
+mutation(
+	$background: String!
+	$text: String!
+	$primarycolor: String!
+) {
+	record_create(
+		record:{
+			table: "modules/module_291/information"
+			properties:[
+				{
+					name: "Background",
+					value: $background
+				},
+				{
+					name:"Text"
+					value:$text
+				},
+				{
+					name:"Primary Color"
+					value:$primarycolor
+				}
+			]
+		}
+	){
+		id
+	}
+}
