@@ -11,11 +11,11 @@ authorization_policies:
 {% parse_json data -%}
 {{context.post_params}}
 {% endparse_json -%}
-{% graphql add_data = "modules/module_291/properties/add_property", 
-  name: data.name, 
-  location: data.location,
-  bedrooms: data.bedrooms,
-  bathrooms: data.bathrooms,
-  image: data.image
+{% graphql check_core_table_exist = "modules/module_291/properties/check_core_table_exist" %}
+{% graphql save_information = "modules/module_291/properties/save_information", 
+  background: data.name, 
+  text: data.text,
+  primarycolor: data.primarycolor,
+  id: check_core_table_exist.records.results[0].id
 %}
 {{add_data}}
