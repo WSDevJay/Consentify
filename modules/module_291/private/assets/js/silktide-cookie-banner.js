@@ -54,14 +54,10 @@ class SilktideCookieBanner {
   // Wrapper
   // ----------------------------------------------------------------
   createWrapper() {
-    if (!document.getElementById('silktide-wrapper')) {
-      this.wrapper = document.createElement('div');
-      this.wrapper.id = 'silktide-wrapper';
-      document.body.insertBefore(this.wrapper, document.body.firstChild);
-    } else {
-      this.wrapper = document.getElementById('silktide-wrapper');
-    }
-  }  
+    this.wrapper = document.createElement('div');
+    this.wrapper.id = 'silktide-wrapper';
+    document.body.insertBefore(this.wrapper, document.body.firstChild);
+  }
 
   // ----------------------------------------------------------------
   // Wrapper Child Generator
