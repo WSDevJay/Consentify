@@ -18,7 +18,7 @@ mutation(
 					value: $text
 				},
 				{
-					name:"Primary Color"
+					name:"Primary color"
 					value: $primarycolor
 				}
 			]
