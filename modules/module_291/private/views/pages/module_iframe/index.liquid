@@ -8,8 +8,6 @@ authorization_policies:
   - modules/siteglide_system/module_is_in_admin
 layout: modules/module_291/templates/1
 ---
-{% graphql g_data = "modules/module_291/properties/generate_info" %}
-{{g_data}}
 {% graphql data = "modules/module_291/properties/get_properties" %}
 <h1>All Properties</h1>
 <div class="row justify-between">
