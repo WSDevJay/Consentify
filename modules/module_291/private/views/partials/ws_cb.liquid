@@ -582,7 +582,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
     showBackground: true
   },
   cookieIcon: {
-    position: "bottomLeft"
+    position: "{{ check_core_table_exist.records.results[0].properties['Icon position'] | default: 'bottomLeft' }}"
   },
   cookieTypes: [
     {
@@ -591,7 +591,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
       description: "These cookies are necessary for the website to function properly and cannot be switched off. They help with things like logging in and setting your privacy preferences.",
       required: true,
       onAccept: function() {
-        console.log('Add logic for the required Necessary cookies here');
+        //console.log('Add logic for the required Necessary cookies here');
       }
     },
     {
