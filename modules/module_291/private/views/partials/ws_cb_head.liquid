@@ -262,7 +262,7 @@
   /* --------------------------------
     Modal - Header
   -------------------------------- */
-  #silktide-modal header {
+  #silktide-modal .cb_header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -438,7 +438,7 @@
   /* --------------------------------
     Modal - Footer
   -------------------------------- */
-  #silktide-modal footer {
+  #silktide-modal .cb_footer {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -446,13 +446,13 @@
   }
 
   @media (min-width: 500px) {
-    #silktide-modal footer {
+    #silktide-modal .cb_footer {
       flex-direction: row;
       align-items: center;
     }
   }
 
-  #silktide-modal footer a {
+  #silktide-modal .cb_footer a {
     margin-left: auto;
     display: none;
   }
